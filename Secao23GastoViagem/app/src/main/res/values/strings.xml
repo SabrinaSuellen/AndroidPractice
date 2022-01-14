@@ -3,4 +3,6 @@
     <string name="distancia">Distância</string>
     <string name="preco">Preço</string>
     <string name="autonomia">Autonomia</string>
+    <string name="preencha_campos">Preencha todos os campos</string>
+    <string name="informe_valor">Informe valores inteiros</string>
 </resources>
