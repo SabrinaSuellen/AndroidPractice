@@ -3,8 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/usemobile/AndroidStudioProjects/Secao28Motivation/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/Users/usemobile/AndroidStudioProjects/Secao28Motivation/app/src/main/res/layout/activity_splash.xml" value="0.22" />
+        <entry key="..\:/Users/usemobile/AndroidStudioProjects/Secao28Motivation/app/src/main/res/drawable/ripple_button.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/usemobile/AndroidStudioProjects/Secao28Motivation/app/src/main/res/layout/activity_main.xml" value="0.14925373134328357" />
+        <entry key="..\:/Users/usemobile/AndroidStudioProjects/Secao28Motivation/app/src/main/res/layout/activity_splash.xml" value="0.18518518518518517" />
       </map>
     </option>
   </component>

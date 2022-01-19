@@ -4,10 +4,83 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    android:padding="24dp"
+    android:background="@color/white"
     tools:context=".ui.MainActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center">
 
+        <ImageView
+            android:id="@+id/image_view_all"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_all" />
+
+        <ImageView
+            android:id="@+id/image_view_face"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_happy" />
+
+        <ImageView
+            android:id="@+id/image_view_sun"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_sun" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_view_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:text="Opa"
+        android:textColor="@color/black"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/text_view_motiva"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="motivação"
+        android:layout_margin="16dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="26sp"
+        android:textStyle="bold|italic" />
+
+    <View
+        android:layout_width="120dp"
+        android:layout_height="2dp"
+        android:layout_below="@id/text_view_motiva"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary" />
+
+
+    <Button
+        android:id="@+id/button_phrase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/text_view_motiva"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/ripple_button"
+        android:padding="10dp"
+        android:text="Nova Frase"
+        android:textColor="@color/white"/>
 
 </RelativeLayout>

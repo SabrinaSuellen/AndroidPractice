@@ -33,16 +33,14 @@
 
     <Button
         android:id="@+id/button_save"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorAccent"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
-        android:background="@color/colorAccent"
-        android:backgroundTint="@color/colorAccent"
+        android:padding="18dp"
         android:text="SALVAR"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textColorLink="@color/white" />
+        android:textColor="@color/white"/>
 
 </RelativeLayout>
