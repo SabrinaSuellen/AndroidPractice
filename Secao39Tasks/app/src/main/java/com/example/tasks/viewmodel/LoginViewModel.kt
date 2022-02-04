@@ -42,8 +42,8 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
                 RetrofitClient.addHeader(model.token, model.personKey)
             }
 
-            override fun onFailure(str: String) {
-                mLogin.value = ValidationListener(str)
+            override fun onFailure(str: String?) {
+                str?.let { mLogin.value = ValidationListener(it) }
             }
 
         })

@@ -26,16 +26,33 @@ class TaskFormViewModel(application: Application) : AndroidViewModel(application
         mPriorityList.value = mPriorityRepository.list()
     }
 
-    fun save(task: TaskModel){
-        mTaskRepository.create(task, object : APIListener<Boolean> {
-            override fun onSuccess(model: Boolean) {
-                mValidation.value = ValidationListener()
-            }
+    fun load(mTaskId: Int){
 
-            override fun onFailure(str: String) {
-                mValidation.value = ValidationListener(str)
-            }
-        })
+    }
+
+    fun save(task: TaskModel){
+
+            mTaskRepository.create(task, object : APIListener<Boolean> {
+                override fun onSuccess(model: Boolean) {
+                    mValidation.value = ValidationListener()
+                }
+
+                override fun onFailure(str: String?) {
+                    str?.let { mValidation.value = ValidationListener(it) }
+                        ?: kotlin.run { "sem dados" }
+                }
+            })
+
+//            mTaskRepository.update(task, object : APIListener<Boolean> {
+//                override fun onSuccess(model: Boolean) {
+//                    mValidation.value = ValidationListener()
+//
+//
+//                override fun onFailure(str: String?) {
+//                    str?.let { mValidation.value = ValidationListener(it) }
+//                        ?: kotlin.run { "sem dados" }
+//                }
+//            })
     }
 
 }

@@ -22,7 +22,7 @@ class AllTasksViewModel(application: Application) : AndroidViewModel(application
                 mList.value = model
             }
 
-            override fun onFailure(str: String) {
+            override fun onFailure(str: String?) {
                 mList.value = arrayListOf()
             }
 

@@ -9,6 +9,7 @@ import android.widget.DatePicker
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.tasks.R
+import com.example.tasks.service.constants.TaskConstants
 import com.example.tasks.service.model.TaskModel
 import com.example.tasks.viewmodel.RegisterViewModel
 import com.example.tasks.viewmodel.TaskFormViewModel
@@ -24,6 +25,7 @@ class TaskFormActivity : AppCompatActivity(), View.OnClickListener,
     private lateinit var mViewModel: TaskFormViewModel
     private val mDateFormat = SimpleDateFormat("dd/MM/yyyy")
     private val mListPriorityId: MutableList<Int> = arrayListOf()
+    private var mTaskId = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +39,17 @@ class TaskFormActivity : AppCompatActivity(), View.OnClickListener,
 
         mViewModel.listPriorities()
 
+        //loadDataFromActivity()
+
     }
+
+//    private fun loadDataFromActivity() {
+//        val bundle = intent.extras
+//        if(bundle != null){
+//            mTaskId = bundle.getInt(TaskConstants.BUNDLE.TASKID)
+//            mViewModel.load(mTaskId)
+//        }
+//    }
 
     override fun onClick(v: View) {
         val id = v.id
@@ -50,10 +62,11 @@ class TaskFormActivity : AppCompatActivity(), View.OnClickListener,
 
     private fun handleSave() {
         val task = TaskModel().apply {
+            //this.id = mTaskId
             this.description = edit_description.text.toString()
             this.complete    = check_complete.isChecked
             this.dueDate     = button_date.text.toString()
-            this.priorityId  = 0
+            this.priorityId  = mListPriorityId[spinner_priority.selectedItemPosition]
         }
 
         mViewModel.save(task)
@@ -101,5 +114,4 @@ class TaskFormActivity : AppCompatActivity(), View.OnClickListener,
         val str = mDateFormat.format(calendar.time)
         button_date.text = str
     }
-
 }

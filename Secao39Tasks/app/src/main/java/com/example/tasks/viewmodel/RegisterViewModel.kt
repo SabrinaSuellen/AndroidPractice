@@ -29,8 +29,8 @@ class RegisterViewModel(application: Application) : AndroidViewModel(application
                 mCreate.value = ValidationListener()
             }
 
-            override fun onFailure(str: String) {
-                mCreate.value = ValidationListener(str)
+            override fun onFailure(str: String?) {
+                str?.let { mCreate.value = ValidationListener(it) }
             }
         })
     }
