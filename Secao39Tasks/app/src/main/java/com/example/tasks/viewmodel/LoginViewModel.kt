@@ -37,15 +37,15 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
                 mSharedPreferences.store(TaskConstants.SHARED.TOKEN_KEY, model.token)
                 mSharedPreferences.store(TaskConstants.SHARED.PERSON_NAME, model.name)
 
+                RetrofitClient.addHeader(model.token, model.personKey)
+
                 mLogin.value = ValidationListener()
 
-                RetrofitClient.addHeader(model.token, model.personKey)
             }
 
             override fun onFailure(str: String?) {
                 str?.let { mLogin.value = ValidationListener(it) }
             }
-
         })
     }
 

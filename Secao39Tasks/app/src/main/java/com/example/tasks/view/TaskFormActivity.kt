@@ -97,7 +97,8 @@ class TaskFormActivity : AppCompatActivity(), View.OnClickListener,
             if(it.success()){
                 Toast.makeText(this, "Sucesso!", Toast.LENGTH_SHORT).show()
             } else{
-                Toast.makeText(this, it.failure(), Toast.LENGTH_SHORT).show()
+                val message = it.failure()
+                Toast.makeText(this, message, Toast.LENGTH_LONG).show()
             }
         })
     }

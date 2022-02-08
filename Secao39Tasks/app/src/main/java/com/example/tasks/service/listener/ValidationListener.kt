@@ -8,7 +8,7 @@ class ValidationListener(str: String = "") {
     init {
         if(str != ""){
             status = false
-            mMessage = ""
+            mMessage = str
         }
     }
 
