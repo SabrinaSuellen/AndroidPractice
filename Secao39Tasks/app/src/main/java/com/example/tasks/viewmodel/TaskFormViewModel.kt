@@ -39,7 +39,7 @@ class TaskFormViewModel(application: Application) : AndroidViewModel(application
 
                 override fun onFailure(str: String?) {
                     str?.let { mValidation.value = ValidationListener(it) }
-                        //?: kotlin.run { "sem dados" }
+                        ?: kotlin.run { "sem dados" }
                 }
             })
 
