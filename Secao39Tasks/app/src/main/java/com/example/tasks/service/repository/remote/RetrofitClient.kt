@@ -11,7 +11,7 @@ class RetrofitClient private constructor() {
     companion object {
 
         private lateinit var retrofit: Retrofit
-        private val baseurl = "http://devmasterteam.com/CursoAndroidAPI/"
+        private const val baseurl = "http://devmasterteam.com/CursoAndroidAPI/"
         private var tokenKey: String  = ""
         private var personKey: String = ""
 

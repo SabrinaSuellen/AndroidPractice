@@ -13,6 +13,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class TaskRepository(val context: Context) {
+
     private val mRemote = RetrofitClient.createService(TaskService::class.java)
 
     fun all(listener: APIListener<List<TaskModel>>) {
@@ -57,13 +58,8 @@ class TaskRepository(val context: Context) {
         call.enqueue(object : Callback<Boolean> {
             override fun onResponse(call: Call<Boolean>, response: Response<Boolean>) {
                 if (response.code() != TaskConstants.HTTP.SUCCESS) {
-                    val validation =
-                        Gson().fromJson(response.errorBody()!!.string(), String::class.java)
-                    if (validation == null)
-                        listener.onFailure("Erro desconhecido")
-                    else
-                        listener.onFailure(validation)
-
+                    val validation = Gson().fromJson(response.errorBody()!!.string(), String::class.java)
+                    listener.onFailure(validation)
                 } else {
                     response.body()?.let { listener.onSuccess(it) }
                 }
@@ -80,10 +76,11 @@ class TaskRepository(val context: Context) {
             mRemote.update(task.id, task.priorityId, task.description, task.dueDate, task.complete)
         call.enqueue(object : Callback<Boolean> {
             override fun onResponse(call: Call<Boolean>, response: Response<Boolean>) {
-                if (response.code() != TaskConstants.HTTP.SUCCESS) {
+                if (response.code() == TaskConstants.HTTP.SUCCESS) {
                     val validation =
                         Gson().fromJson(response.errorBody()!!.string(), String::class.java)
                     listener.onFailure(validation)
+                    response.body()?.let { listener.onSuccess(it) }
                 } else {
                     response.body()?.let { listener.onSuccess(it) }
                 }
